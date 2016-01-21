@@ -1,0 +1,10 @@
+<library path="lib/libdlib_facedetector_nodelet">
+  <class name="dlib_facedetector/Nodelet"
+	 type="dlib_facedetector::Nodelet"
+	 base_class_type="nodelet::Nodelet">
+    <description>
+      dlib facedetector based nodelet
+    </description>
+  </class>
+</library>
+
