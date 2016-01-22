@@ -46,14 +46,14 @@ class Nodelet : public nodelet::Nodelet{
     dynamic_reconfigure::Server<dlib_facedetector::dlib_facedetectorConfig> *reconfig_server_;
     image_transport::ImageTransport *image_transport_;
     image_transport::CameraSubscriber image_subscriber_;
-    image_transport::Publisher people_image_publisher_;
 
+    ros::Publisher people_image_publisher_;
     ros::Publisher people_publisher_;
 
     std::string landmark_filename_;
     dlib::frontal_face_detector detector;
     dlib::shape_predictor pose_model;
-    bool fit_;
+    bool fit_landmarks_;
 };
 
 }  // namespace dlib_facedetector

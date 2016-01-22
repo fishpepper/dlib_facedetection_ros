@@ -42,6 +42,13 @@
       <remap from="image_color" to="image_color_subsampled"/>
     </node>
 
+    <!-- faces -->
+    <node pkg="nodelet" type="nodelet" name="dlib_facedetector_nodelet" args="load dlib_facedetector/Nodelet $(arg manager_name)">
+      <remap from="image_color" to="image_color_subsampled"/>
+      <param name="landmark_filename" type="string" value="/tmp/flobi-minimal-rsb-nightly/share/dlib/shape_predictor_68_face_landmarks.dat" />
+    </node>
+
+
   </group>
 
 </launch>

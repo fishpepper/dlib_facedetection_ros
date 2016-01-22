@@ -5,6 +5,8 @@ project(dlib_facedetector)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 
+SET(CMAKE_CXX_FLAGS "-Wall  -O2 -g -march=native" )
+
 #use PkgConfig
 find_package(PkgConfig REQUIRED)
 
@@ -88,8 +90,9 @@ find_package(Boost REQUIRED COMPONENTS system thread)
 
 #add dynamic reconfigure api
 generate_dynamic_reconfigure_options(
-  cfg/nmpt_saliency.cfg
+  cfg/dlib_facedetector.cfg
 )
+
 
 MESSAGE(INFO ${dlib_INSTALL_PATH})
 MESSAGE(INFO ${dlib_INCLUDE_DIRS})
@@ -140,6 +143,8 @@ target_link_libraries(dlib_facedetector_nodelet
   ${Boost_LIBRARIES}
   yaml-cpp
 )
+
+set_target_properties(dlib_facedetector_nodelet PROPERTIES COMPILE_FLAGS "-mavx")
 
 #############
 ## style guide ##
